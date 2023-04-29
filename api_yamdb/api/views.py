@@ -21,7 +21,6 @@ from api_yamdb.permissions import (
 from reviews.filters import TitleFilter
 from reviews.models import Category, Genre, Review, Title
 
-
 class CategoryGenreCommonViewSet(ListCreateDestroyViewSet):
     permission_classes = (IsAdmin | ReadOnly,)
     lookup_field = 'slug'
