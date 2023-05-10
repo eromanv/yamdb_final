@@ -59,15 +59,13 @@ jobs:
             ls
             sudo docker-compose stop
             sudo docker-compose rm web
-            cd eromanv
             touch .env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            cd ..
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> eromanv/.env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> eromanv/.env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> eromanv/.env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> eromanv/.env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> eromanv/.env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> eromanv/.env
             sudo docker-compose up -d
           
   send_message:
