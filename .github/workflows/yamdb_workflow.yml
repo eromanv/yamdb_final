@@ -41,7 +41,7 @@ jobs:
         with:
           context: ./api_yamdb
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb_1:latest
+          tags: eromanv/yamdb:latest
           
   deploy:
     runs-on: ubuntu-latest
@@ -53,20 +53,18 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+        passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-            pwd
-            ls
-            sudo docker-compose stop
-            sudo docker-compose rm web
+            sudo docker compose stop
+            sudo docker compose rm web
             touch .env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> eromanv/.env
-            echo DB_NAME=${{ secrets.DB_NAME }} >> eromanv/.env
-            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> eromanv/.env
-            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> eromanv/.env
-            echo DB_HOST=${{ secrets.DB_HOST }} >> eromanv/.env
-            echo DB_PORT=${{ secrets.DB_PORT }} >> eromanv/.env
-            sudo docker-compose up -d
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+            sudo docker compose up
           
   send_message:
     runs-on: ubuntu-latest
