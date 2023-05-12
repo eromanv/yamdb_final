@@ -6,7 +6,7 @@ services:
     volumes:
       - /var/lib/postgresql/data/
     env_file:
-      - .env
+      - eroman/.env
   web:
     image: eromanv/api_yamdb:v1.0
     restart: always
@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
     env_file:
-      - .env
+      - eromanv/.env
   nginx:
     image: nginx:1.21.3-alpine
     ports:
