@@ -1,5 +1,5 @@
 # yamdb_final
-![example workflow](https://github.com/eromanv/yamdb_final-1/actions/workflows/yamdb_workflow.yml/badge.svg)
+![example workflow](https://github.com/eromanv/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 
 Проект Yamdb собирает отзывы (Review) пользователей на произведения (Titles).  
