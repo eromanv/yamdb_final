@@ -1,6 +1,8 @@
 # yamdb_final
 ![example workflow](https://github.com/eromanv/yamdb_final-1/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+А сервер находится тут: http://158.160.99.246/
+
 
 Проект Yamdb собирает отзывы (Review) пользователей на произведения (Titles).  
 
